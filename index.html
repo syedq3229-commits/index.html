@@ -1,440 +1,270 @@
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>9th Class Notes</title>
+<title>My Notes - 9th Class</title>
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{box-sizing:border-box}
+body{
+ margin:0;
+ font-family:Arial,sans-serif;
+ background:#f0f4ff;
+ color:#172554;
 }
-
-body {
-    font-family: Arial, sans-serif;
-    background: #eef3ff;
-    color: #222;
+header{
+ background:linear-gradient(120deg,#101b50,#2563eb);
+ color:white;
+ text-align:center;
+ padding:28px 12px;
 }
-
-header {
-    background: linear-gradient(135deg,#061a66,#1769e0);
-    color: white;
-    text-align: center;
-    padding: 30px 15px;
+header h1{margin:0;font-size:30px}
+header p{margin:10px 0 0}
+.container{max-width:950px;margin:auto;padding:15px}
+.search{
+ width:100%;padding:14px;border:2px solid #2563eb;
+ border-radius:12px;font-size:16px;margin:15px 0;
 }
-
-header h1 {
-    font-size: 30px;
-    margin-bottom: 10px;
+h2{text-align:center;color:#1d4ed8}
+.subjects{
+ display:grid;
+ grid-template-columns:repeat(2,1fr);
+ gap:12px;
 }
-
-header p {
-    font-size: 16px;
+.subject{
+ background:white;border:0;border-radius:14px;
+ padding:20px 8px;font-size:17px;font-weight:bold;
+ color:#1e3a8a;box-shadow:0 3px 12px #0001;
+ cursor:pointer;
 }
-
-nav {
-    background: #09245c;
-    padding: 14px;
-    text-align: center;
+.subject:active{background:#dbeafe}
+button{cursor:pointer}
+.tabs{
+ display:flex;gap:8px;flex-wrap:wrap;
+ justify-content:center;margin:15px 0;
 }
-
-nav button {
-    background: white;
-    color: #09245c;
-    border: none;
-    padding: 11px 17px;
-    margin: 5px;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
+.tabs button{
+ border:0;background:#dbeafe;color:#1e40af;
+ padding:11px 15px;border-radius:9px;font-weight:bold;
 }
-
-nav button:hover {
-    background: #ffcc00;
+.tabs button.active{background:#1d4ed8;color:white}
+.card{
+ background:white;border-radius:13px;
+ padding:17px;margin:12px 0;
+ box-shadow:0 3px 10px #0001;
 }
-
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 20px;
+.card h3{color:#1d4ed8}
+.answer{color:#166534;line-height:1.8}
+.small{color:#64748b;font-size:13px}
+.action{
+ background:#1d4ed8;color:white;border:0;
+ padding:11px 16px;border-radius:9px;margin:5px;
 }
-
-.welcome {
-    background: white;
-    padding: 25px;
-    text-align: center;
-    border-radius: 15px;
-    margin-bottom: 25px;
-    box-shadow: 0 3px 12px #ccd5e8;
+.back{background:#475569}
+footer{
+ text-align:center;padding:22px;
+ background:#101b50;color:white;margin-top:30px;
 }
-
-.welcome h2 {
-    color: #1255bb;
-    margin-bottom: 10px;
+.hidden{display:none}
+@media(min-width:650px){
+ .subjects{grid-template-columns:repeat(4,1fr)}
 }
-
-.section-title {
-    text-align: center;
-    color: #09245c;
-    margin: 25px 0;
-}
-
-.books {
-    display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
-    gap: 18px;
-}
-
-.book {
-    background: white;
-    padding: 22px;
-    text-align: center;
-    border-radius: 15px;
-    box-shadow: 0 3px 12px #ccd5e8;
-}
-
-.book h3 {
-    color: #1357b8;
-    margin-bottom: 12px;
-}
-
-.book button {
-    background: #145bd0;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-}
-
-.book button:hover {
-    background: #09245c;
-}
-
-#details {
-    display: none;
-    background: white;
-    padding: 22px;
-    margin-top: 25px;
-    border-radius: 15px;
-    box-shadow: 0 3px 12px #ccd5e8;
-}
-
-#details h2 {
-    color: #1357b8;
-    margin-bottom: 15px;
-}
-
-.chapter {
-    background: #edf3ff;
-    margin: 12px 0;
-    padding: 15px;
-    border-radius: 10px;
-}
-
-.chapter button {
-    background: #145bd0;
-    color: white;
-    border: none;
-    padding: 9px 14px;
-    border-radius: 7px;
-    margin-top: 10px;
-    cursor: pointer;
-}
-
-.content-box {
-    background: #f5f8ff;
-    padding: 18px;
-    margin-top: 12px;
-    border-left: 5px solid #145bd0;
-    border-radius: 8px;
-    line-height: 1.8;
-}
-
-.back {
-    background: #e53935;
-    color: white;
-    border: none;
-    padding: 11px 18px;
-    border-radius: 8px;
-    margin-top: 15px;
-    cursor: pointer;
-}
-
-footer {
-    background: #09245c;
-    color: white;
-    text-align: center;
-    padding: 22px;
-    margin-top: 35px;
-}
-
 </style>
 </head>
 
 <body>
 
 <header>
-    <h1>📚 9th Class Notes</h1>
-    <p>All Books | Notes | MCQs | Questions Answers</p>
+<h1>📚 MY NOTES</h1>
+<p>9th Class Punjab Board</p>
+<p>All Books | MCQs | Short Questions | Long Questions</p>
 </header>
-
-<nav>
-    <button onclick="goHome()">Home</button>
-    <button onclick="showAllBooks()">All Books</button>
-    <button onclick="goHome()">About</button>
-</nav>
 
 <div class="container">
 
-    <div class="welcome" id="welcome">
-        <h2>Welcome to 9th Class Notes Website</h2>
-        <p>
-        خوش آمدید! یہاں آپ کو نویں جماعت کی تمام کتابوں
-        کے نوٹس، چیپٹرز، MCQs اور سوال جواب ملیں گے۔
-        </p>
-    </div>
+<div id="home">
+<h2>📖 اپنی کتاب منتخب کریں</h2>
 
-    <h2 class="section-title" id="booksTitle">
-        📖 Select Your Book
-    </h2>
+<input class="search" id="search"
+placeholder="🔍 سوال یا کتاب تلاش کریں..."
+oninput="searchNotes()">
 
-    <div class="books" id="books">
+<div class="subjects" id="subjects"></div>
+</div>
 
-        <div class="book">
-            <h3>📘 English</h3>
-            <p>English Notes and Chapters</p>
-            <br>
-            <button onclick="openBook('English')">Open Book</button>
-        </div>
+<div id="study" class="hidden">
+<button class="action back" onclick="goHome()">⬅ واپس</button>
+<h2 id="bookTitle"></h2>
 
-        <div class="book">
-            <h3>📗 Urdu</h3>
-            <p>Urdu Notes and Chapters</p>
-            <br>
-            <button onclick="openBook('Urdu')">Open Book</button>
-        </div>
+<div class="tabs">
+<button class="active" onclick="showType('all',this)">تمام</button>
+<button onclick="showType('mcq',this)">MCQs</button>
+<button onclick="showType('short',this)">مختصر سوالات</button>
+<button onclick="showType('long',this)">تفصیلی سوالات</button>
+<button onclick="showType('fav',this)">⭐ پسندیدہ</button>
+</div>
 
-        <div class="book">
-            <h3>📕 Mathematics</h3>
-            <p>Math Formulas and Exercises</p>
-            <br>
-            <button onclick="openBook('Mathematics')">Open Book</button>
-        </div>
-
-        <div class="book">
-            <h3>💻 Computer</h3>
-            <p>Computer Science Notes</p>
-            <br>
-            <button onclick="openBook('Computer')">Open Book</button>
-        </div>
-
-        <div class="book">
-            <h3>⚛️ Physics</h3>
-            <p>Physics Notes and Numericals</p>
-            <br>
-            <button onclick="openBook('Physics')">Open Book</button>
-        </div>
-
-        <div class="book">
-            <h3>🧪 Chemistry</h3>
-            <p>Chemistry Notes and Questions</p>
-            <br>
-            <button onclick="openBook('Chemistry')">Open Book</button>
-        </div>
-
-    </div>
-
-    <div id="details">
-        <h2 id="bookName"></h2>
-        <p>Select your chapter:</p>
-        <div id="chapters"></div>
-        <button class="back" onclick="goHome()">⬅ Back to Home</button>
-    </div>
+<div id="notes"></div>
+</div>
 
 </div>
 
 <footer>
-    <h3>9th Class Notes</h3>
-    <p>Made for Students ❤️</p>
-    <p>All Rights Reserved</p>
+<h3>MY NOTES ❤️</h3>
+<p>Made for 9th Class Students</p>
+<p>Punjab Board Study Website</p>
 </footer>
 
 <script>
 
-const subjects = {
-    English: [
-        "The Saviour of Mankind",
-        "Patriotism",
-        "Media and Its Impact",
-        "Hazrat Asma (RA)",
-        "Daffodils"
-    ],
+const books = [
+"English","Urdu","Islamiyat","Tarjuma Quran",
+"Mathematics","Physics","Chemistry","Computer"
+];
 
-    Urdu: [
-        "حمد",
-        "نعت",
-        "اخلاق حسنہ",
-        "اپنی مدد آپ",
-        "کسان"
-    ],
+const icons = ["📘","📗","🕌","📖","📐","⚡","🧪","💻"];
 
-    Mathematics: [
-        "Matrices and Determinants",
-        "Real and Complex Numbers",
-        "Logarithms",
-        "Algebraic Expressions",
-        "Factorization"
-    ],
-
-    Computer: [
-        "Introduction to Systems",
-        "Binary System",
-        "Digital Systems",
-        "Applications and Uses",
-        "Computer Networks"
-    ],
-
-    Physics: [
-        "Physical Quantities",
-        "Kinematics",
-        "Dynamics",
-        "Turning Effect of Forces",
-        "Gravitation"
-    ],
-
-    Chemistry: [
-        "Fundamentals of Chemistry",
-        "Structure of Atoms",
-        "Periodic Table",
-        "Chemical Bonding",
-        "Physical States of Matter"
-    ]
+const data = {
+"English":[
+{type:"mcq",ch:"Chapter 1",q:"What is a noun?",a:"A noun is the name of a person, place, thing or idea.",opts:["Name of a person or thing","An action","A joining word","A sound"],correct:0},
+{type:"short",ch:"Chapter 1",q:"What is a verb?",a:"A verb is a word that shows an action or state."},
+{type:"long",ch:"Chapter 1",q:"Explain the importance of education.",a:"Education helps people gain knowledge, skills and good values. It helps us become responsible members of society."}
+],
+"Urdu":[
+{type:"mcq",ch:"باب 1",q:"اسم کسے کہتے ہیں؟",a:"کسی شخص، جگہ یا چیز کے نام کو اسم کہتے ہیں۔",opts:["نام کو","کام کو","صفت کو","حرف کو"],correct:0},
+{type:"short",ch:"باب 1",q:"محنت کا کیا مطلب ہے؟",a:"کوشش اور لگن سے کام کرنے کو محنت کہتے ہیں۔"},
+{type:"long",ch:"باب 1",q:"تعلیم کی اہمیت بیان کریں۔",a:"تعلیم انسان کو شعور، علم اور اچھے اخلاق سکھاتی ہے۔ تعلیم سے انسان اپنی زندگی بہتر بنا سکتا ہے۔"}
+],
+"Islamiyat":[
+{type:"mcq",ch:"باب 1",q:"ہمارے آخری نبی کون ہیں؟",a:"حضرت محمد ﷺ",opts:["حضرت آدمؑ","حضرت موسیٰؑ","حضرت محمد ﷺ","حضرت عیسیٰؑ"],correct:2},
+{type:"short",ch:"باب 1",q:"اسلام کے کتنے بنیادی ارکان ہیں؟",a:"اسلام کے پانچ بنیادی ارکان ہیں۔"},
+{type:"long",ch:"باب 1",q:"نماز کی اہمیت بیان کریں۔",a:"نماز اسلام کا اہم رکن ہے۔ یہ انسان کو اللہ تعالیٰ کی یاد دلاتی ہے اور نظم و ضبط سکھاتی ہے۔"}
+],
+"Tarjuma Quran":[
+{type:"mcq",ch:"باب 1",q:"قرآن مجید کس زبان میں نازل ہوا؟",a:"عربی زبان میں۔",opts:["اردو","عربی","فارسی","انگریزی"],correct:1},
+{type:"short",ch:"باب 1",q:"قرآن مجید کیا ہے؟",a:"قرآن مجید اللہ تعالیٰ کی آخری کتاب ہے۔"},
+{type:"long",ch:"باب 1",q:"قرآن مجید کی اہمیت لکھیں۔",a:"قرآن مجید انسانوں کے لیے ہدایت کی کتاب ہے۔ یہ ہمیں نیکی، انصاف اور اچھے اخلاق کا درس دیتا ہے۔"}
+],
+"Mathematics":[
+{type:"mcq",ch:"Chapter 1",q:"What is 5 × 5?",a:"25",opts:["10","15","20","25"],correct:3},
+{type:"short",ch:"Chapter 1",q:"What is a variable?",a:"A variable is a symbol that represents an unknown or changing value."},
+{type:"long",ch:"Chapter 1",q:"What is an algebraic expression?",a:"An algebraic expression is a mathematical expression made up of variables, constants and operations."}
+],
+"Physics":[
+{type:"mcq",ch:"Chapter 1",q:"What is the SI unit of length?",a:"Metre (m)",opts:["Kilogram","Metre","Second","Newton"],correct:1},
+{type:"short",ch:"Chapter 1",q:"Define physics.",a:"Physics is the branch of science that studies matter, energy and their interactions."},
+{type:"long",ch:"Chapter 1",q:"What is the importance of physics?",a:"Physics helps us understand natural phenomena, energy, motion, electricity and technology."}
+],
+"Chemistry":[
+{type:"mcq",ch:"Chapter 1",q:"What is the chemical symbol of oxygen?",a:"O",opts:["O","H","C","N"],correct:0},
+{type:"short",ch:"Chapter 1",q:"Define atom.",a:"An atom is the smallest unit of an element that retains its chemical properties."},
+{type:"long",ch:"Chapter 1",q:"Differentiate between an element and a compound.",a:"An element contains only one kind of atom, while a compound contains two or more elements chemically combined in a fixed ratio."}
+],
+"Computer":[
+{type:"mcq",ch:"Chapter 1",q:"What is a computer?",a:"An electronic machine that processes data.",opts:["A machine for processing data","A book","A chair","A vehicle"],correct:0},
+{type:"mcq",ch:"Chapter 1",q:"Which part is called the brain of computer?",a:"CPU",opts:["Mouse","Monitor","CPU","Keyboard"],correct:2},
+{type:"short",ch:"Chapter 1",q:"Define hardware.",a:"The physical parts of a computer that we can see and touch are called hardware."},
+{type:"short",ch:"Chapter 1",q:"What is software?",a:"A set of programs and instructions that tell a computer what to do is called software."},
+{type:"long",ch:"Chapter 1",q:"Explain the basic components of a computer.",a:"The basic components include input devices, the CPU, memory and output devices. Input devices enter data, the CPU processes it, memory stores it and output devices show the results."}
+]
 };
 
-function openBook(subject) {
+let currentBook = "";
+let currentType = "all";
+let favorites = JSON.parse(localStorage.getItem("myFav") || "[]");
 
-    document.getElementById("welcome").style.display = "none";
-    document.getElementById("books").style.display = "none";
-    document.getElementById("booksTitle").style.display = "none";
+const subjectBox = document.getElementById("subjects");
 
-    let details = document.getElementById("details");
+books.forEach((book,i)=>{
+ let b=document.createElement("button");
+ b.className="subject";
+ b.innerHTML=icons[i]+"<br>"+book;
+ b.onclick=()=>openBook(book);
+ subjectBox.appendChild(b);
+});
 
-    details.style.display = "block";
-
-    document.getElementById("bookName").innerText =
-        "📚 " + subject + " Book";
-
-    let chapterBox = document.getElementById("chapters");
-
-    chapterBox.innerHTML = "";
-
-    subjects[subject].forEach((chapter,index) => {
-
-        let div = document.createElement("div");
-
-        div.className = "chapter";
-
-        div.innerHTML = `
-            <h3>Chapter ${index+1}: ${chapter}</h3>
-
-            <button onclick="showNotes('${subject}',${index})">
-                📖 Notes
-            </button>
-
-            <button onclick="showMCQs('${subject}',${index})">
-                📝 MCQs
-            </button>
-
-            <button onclick="showQuestions('${subject}',${index})">
-                ❓ Questions Answers
-            </button>
-        `;
-
-        chapterBox.appendChild(div);
-
-    });
-
+function openBook(book){
+ currentBook=book;
+ currentType="all";
+ document.getElementById("home").classList.add("hidden");
+ document.getElementById("study").classList.remove("hidden");
+ document.getElementById("bookTitle").innerText="📖 "+book;
+ renderNotes();
 }
 
-function showNotes(subject,index) {
-
-    let chapter = subjects[subject][index];
-
-    document.getElementById("chapters").innerHTML = `
-        <div class="content-box">
-            <h2>📖 ${chapter} - Notes</h2>
-            <p>یہاں اس چیپٹر کے مکمل نوٹس شامل کیے جائیں گے۔</p>
-            <p>Important Definitions</p>
-            <p>Important Short Questions</p>
-            <p>Important Long Questions</p>
-            <p>Important Points</p>
-        </div>
-        <button class="back" onclick="openBook('${subject}')">
-        ⬅ Back to Chapters
-        </button>
-    `;
-
+function goHome(){
+ document.getElementById("study").classList.add("hidden");
+ document.getElementById("home").classList.remove("hidden");
 }
 
-function showMCQs(subject,index) {
-
-    let chapter = subjects[subject][index];
-
-    document.getElementById("chapters").innerHTML = `
-        <div class="content-box">
-            <h2>📝 ${chapter} - MCQs</h2>
-            <p>1. Important MCQ will appear here.</p>
-            <p>2. Choose the correct answer.</p>
-            <p>3. Practice important questions.</p>
-        </div>
-        <button class="back" onclick="openBook('${subject}')">
-        ⬅ Back to Chapters
-        </button>
-    `;
-
+function showType(type,btn){
+ currentType=type;
+ document.querySelectorAll(".tabs button").forEach(x=>x.classList.remove("active"));
+ btn.classList.add("active");
+ renderNotes();
 }
 
-function showQuestions(subject,index) {
+function renderNotes(){
+ let box=document.getElementById("notes");
+ box.innerHTML="";
+ let items=data[currentBook] || [];
 
-    let chapter = subjects[subject][index];
+ items.forEach((item,i)=>{
+ if(currentType!=="all" && currentType!=="fav" && item.type!==currentType)return;
+ if(currentType==="fav" && !favorites.includes(currentBook+"-"+i))return;
 
-    document.getElementById("chapters").innerHTML = `
-        <div class="content-box">
-            <h2>❓ ${chapter} - Questions Answers</h2>
-            <p>Short Questions:</p>
-            <p>Question 1: Important question will appear here.</p>
-            <p>Question 2: Important question will appear here.</p>
-            <br>
-            <p>Long Questions:</p>
-            <p>Long question answers will appear here.</p>
-        </div>
-        <button class="back" onclick="openBook('${subject}')">
-        ⬅ Back to Chapters
-        </button>
-    `;
+ let div=document.createElement("div");
+ div.className="card";
 
+ let label=item.type==="mcq"?"MCQ":item.type==="short"?"مختصر سوال":"تفصیلی سوال";
+
+ let options="";
+ if(item.type==="mcq"){
+ options="<p>";
+ item.opts.forEach((o,n)=>{
+ options+="<br>"+String.fromCharCode(65+n)+". "+o;
+ });
+ options+="</p>";
+ }
+
+ div.innerHTML=`
+ <span class="small">${item.ch} | ${label}</span>
+ <h3>سوال ${i+1}: ${item.q}</h3>
+ ${options}
+ <details>
+ <summary>جواب دیکھیں</summary>
+ <p class="answer">${item.a}</p>
+ </details>
+ <button class="action" onclick="toggleFav('${currentBook}-${i}')">⭐ پسندیدہ</button>
+ `;
+ box.appendChild(div);
+ });
+
+ if(box.innerHTML===""){
+ box.innerHTML="<div class='card'>ابھی اس حصے میں کوئی سوال شامل نہیں ہے۔</div>";
+ }
 }
 
-function goHome() {
-
-    document.getElementById("welcome").style.display = "block";
-    document.getElementById("books").style.display = "grid";
-    document.getElementById("booksTitle").style.display = "block";
-    document.getElementById("details").style.display = "none";
-
+function toggleFav(id){
+ if(favorites.includes(id)){
+ favorites=favorites.filter(x=>x!==id);
+ }else{
+ favorites.push(id);
+ }
+ localStorage.setItem("myFav",JSON.stringify(favorites));
+ renderNotes();
 }
 
-function showAllBooks() {
-    goHome();
-    document.getElementById("booksTitle").scrollIntoView();
+function searchNotes(){
+ let term=document.getElementById("search").value.toLowerCase();
+ let buttons=document.querySelectorAll(".subject");
+ buttons.forEach((b,i)=>{
+ b.style.display=books[i].toLowerCase().includes(term)?"block":"none";
+ });
 }
 
 </script>
-
 </body>
 </html>
