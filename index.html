@@ -1,270 +1,281 @@
-
 <!DOCTYPE html>
-<html lang="ur">
+<html lang="ur" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Notes - 9th Class</title>
-
+<title>My Notes - 9th Class 2026</title>
 <style>
 *{box-sizing:border-box}
-body{
- margin:0;
- font-family:Arial,sans-serif;
- background:#f0f4ff;
- color:#172554;
-}
-header{
- background:linear-gradient(120deg,#101b50,#2563eb);
- color:white;
- text-align:center;
- padding:28px 12px;
-}
-header h1{margin:0;font-size:30px}
-header p{margin:10px 0 0}
-.container{max-width:950px;margin:auto;padding:15px}
-.search{
- width:100%;padding:14px;border:2px solid #2563eb;
- border-radius:12px;font-size:16px;margin:15px 0;
-}
-h2{text-align:center;color:#1d4ed8}
-.subjects{
- display:grid;
- grid-template-columns:repeat(2,1fr);
- gap:12px;
-}
-.subject{
- background:white;border:0;border-radius:14px;
- padding:20px 8px;font-size:17px;font-weight:bold;
- color:#1e3a8a;box-shadow:0 3px 12px #0001;
- cursor:pointer;
-}
-.subject:active{background:#dbeafe}
-button{cursor:pointer}
-.tabs{
- display:flex;gap:8px;flex-wrap:wrap;
- justify-content:center;margin:15px 0;
-}
-.tabs button{
- border:0;background:#dbeafe;color:#1e40af;
- padding:11px 15px;border-radius:9px;font-weight:bold;
-}
-.tabs button.active{background:#1d4ed8;color:white}
-.card{
- background:white;border-radius:13px;
- padding:17px;margin:12px 0;
- box-shadow:0 3px 10px #0001;
-}
-.card h3{color:#1d4ed8}
-.answer{color:#166534;line-height:1.8}
-.small{color:#64748b;font-size:13px}
-.action{
- background:#1d4ed8;color:white;border:0;
- padding:11px 16px;border-radius:9px;margin:5px;
-}
-.back{background:#475569}
-footer{
- text-align:center;padding:22px;
- background:#101b50;color:white;margin-top:30px;
-}
+body{margin:0;font-family:Arial,sans-serif;background:#eef2f7;color:#172033}
+header{background:linear-gradient(135deg,#063b32,#087f5b);color:white;text-align:center;padding:25px 10px}
+header h1{margin:0;font-size:27px}
+header p{margin:8px}
+.container{max-width:850px;margin:auto;padding:15px}
+.card{background:white;padding:18px;margin:13px 0;border-radius:14px;box-shadow:0 3px 12px #0001}
+button{border:0;border-radius:9px;padding:12px;margin:5px;background:#087f5b;color:white;font-size:16px;cursor:pointer}
+button:hover{background:#045c43}
+.book{width:100%;text-align:right;font-size:19px;padding:17px}
+.secondary{background:#2455a4}
+.question{border-bottom:1px solid #ddd;padding:15px 0}
+.option{display:block;background:#eef2f7;color:#172033;text-align:right;width:100%;margin:7px 0}
+.correct{background:#c8f7d5!important;color:#075b26}
+.wrong{background:#ffd5d5!important;color:#9b1111}
+.answer{background:#e9f8ef;padding:12px;border-radius:8px;margin-top:8px}
 .hidden{display:none}
-@media(min-width:650px){
- .subjects{grid-template-columns:repeat(4,1fr)}
-}
+h2{color:#087f5b}
+input{padding:12px;width:100%;border:1px solid #ccc;border-radius:8px}
+footer{text-align:center;padding:20px;color:#666}
 </style>
 </head>
-
 <body>
 
 <header>
 <h1>📚 MY NOTES</h1>
-<p>9th Class Punjab Board</p>
-<p>All Books | MCQs | Short Questions | Long Questions</p>
+<p>نویں جماعت 2026 | پنجاب بورڈ</p>
+<p>آپ کی اپنی تعلیمی ویب سائٹ</p>
 </header>
 
 <div class="container">
 
 <div id="home">
-<h2>📖 اپنی کتاب منتخب کریں</h2>
-
-<input class="search" id="search"
-placeholder="🔍 سوال یا کتاب تلاش کریں..."
-oninput="searchNotes()">
-
-<div class="subjects" id="subjects"></div>
+<div class="card">
+<h2>خوش آمدید!</h2>
+<p>اپنی کتاب منتخب کریں اور MCQs، مختصر سوالات اور تفصیلی سوالات پڑھیں۔</p>
+</div>
+<div id="books"></div>
 </div>
 
-<div id="study" class="hidden">
-<button class="action back" onclick="goHome()">⬅ واپس</button>
+<div id="subjects" class="hidden">
+<button onclick="goHome()">🏠 واپس جائیں</button>
+<div class="card">
 <h2 id="bookTitle"></h2>
-
-<div class="tabs">
-<button class="active" onclick="showType('all',this)">تمام</button>
-<button onclick="showType('mcq',this)">MCQs</button>
-<button onclick="showType('short',this)">مختصر سوالات</button>
-<button onclick="showType('long',this)">تفصیلی سوالات</button>
-<button onclick="showType('fav',this)">⭐ پسندیدہ</button>
+<button onclick="showSection('mcq')">50 MCQs</button>
+<button onclick="showSection('short')">20 مختصر سوالات</button>
+<button onclick="showSection('long')">10 تفصیلی سوالات</button>
 </div>
-
-<div id="notes"></div>
+<div id="content"></div>
 </div>
 
 </div>
 
-<footer>
-<h3>MY NOTES ❤️</h3>
-<p>Made for 9th Class Students</p>
-<p>Punjab Board Study Website</p>
-</footer>
+<footer>MY NOTES © 2026</footer>
 
 <script>
-
-const books = [
-"English","Urdu","Islamiyat","Tarjuma Quran",
-"Mathematics","Physics","Chemistry","Computer"
+const books=[
+"English",
+"اردو",
+"Mathematics",
+"Physics",
+"Chemistry",
+"Computer Science"
 ];
 
-const icons = ["📘","📗","🕌","📖","📐","⚡","🧪","💻"];
-
-const data = {
-"English":[
-{type:"mcq",ch:"Chapter 1",q:"What is a noun?",a:"A noun is the name of a person, place, thing or idea.",opts:["Name of a person or thing","An action","A joining word","A sound"],correct:0},
-{type:"short",ch:"Chapter 1",q:"What is a verb?",a:"A verb is a word that shows an action or state."},
-{type:"long",ch:"Chapter 1",q:"Explain the importance of education.",a:"Education helps people gain knowledge, skills and good values. It helps us become responsible members of society."}
+const bank={
+"English":{
+mcq:[
+["What is a noun?","Name of a person, place or thing","Action","Quality","Sound",0],
+["What is a verb?","Naming word","Action word","Joining word","Describing word",1],
+["What is an adjective?","Describing word","Action word","Pronoun","Preposition",0],
+["What is a pronoun?","A word used instead of a noun","Action","Place","Sound",0],
+["What is the plural of child?","Childs","Children","Childes","Childrens",1]
 ],
-"Urdu":[
-{type:"mcq",ch:"باب 1",q:"اسم کسے کہتے ہیں؟",a:"کسی شخص، جگہ یا چیز کے نام کو اسم کہتے ہیں۔",opts:["نام کو","کام کو","صفت کو","حرف کو"],correct:0},
-{type:"short",ch:"باب 1",q:"محنت کا کیا مطلب ہے؟",a:"کوشش اور لگن سے کام کرنے کو محنت کہتے ہیں۔"},
-{type:"long",ch:"باب 1",q:"تعلیم کی اہمیت بیان کریں۔",a:"تعلیم انسان کو شعور، علم اور اچھے اخلاق سکھاتی ہے۔ تعلیم سے انسان اپنی زندگی بہتر بنا سکتا ہے۔"}
+short:[
+["What is a noun?","A noun is the name of a person, place, animal or thing."],
+["What is a verb?","A verb is a word that shows an action or state."],
+["What is an adjective?","An adjective describes a noun or pronoun."],
+["What is a pronoun?","A pronoun is used instead of a noun."],
+["What is a sentence?","A sentence is a group of words that gives complete meaning."]
 ],
-"Islamiyat":[
-{type:"mcq",ch:"باب 1",q:"ہمارے آخری نبی کون ہیں؟",a:"حضرت محمد ﷺ",opts:["حضرت آدمؑ","حضرت موسیٰؑ","حضرت محمد ﷺ","حضرت عیسیٰؑ"],correct:2},
-{type:"short",ch:"باب 1",q:"اسلام کے کتنے بنیادی ارکان ہیں؟",a:"اسلام کے پانچ بنیادی ارکان ہیں۔"},
-{type:"long",ch:"باب 1",q:"نماز کی اہمیت بیان کریں۔",a:"نماز اسلام کا اہم رکن ہے۔ یہ انسان کو اللہ تعالیٰ کی یاد دلاتی ہے اور نظم و ضبط سکھاتی ہے۔"}
-],
-"Tarjuma Quran":[
-{type:"mcq",ch:"باب 1",q:"قرآن مجید کس زبان میں نازل ہوا؟",a:"عربی زبان میں۔",opts:["اردو","عربی","فارسی","انگریزی"],correct:1},
-{type:"short",ch:"باب 1",q:"قرآن مجید کیا ہے؟",a:"قرآن مجید اللہ تعالیٰ کی آخری کتاب ہے۔"},
-{type:"long",ch:"باب 1",q:"قرآن مجید کی اہمیت لکھیں۔",a:"قرآن مجید انسانوں کے لیے ہدایت کی کتاب ہے۔ یہ ہمیں نیکی، انصاف اور اچھے اخلاق کا درس دیتا ہے۔"}
-],
-"Mathematics":[
-{type:"mcq",ch:"Chapter 1",q:"What is 5 × 5?",a:"25",opts:["10","15","20","25"],correct:3},
-{type:"short",ch:"Chapter 1",q:"What is a variable?",a:"A variable is a symbol that represents an unknown or changing value."},
-{type:"long",ch:"Chapter 1",q:"What is an algebraic expression?",a:"An algebraic expression is a mathematical expression made up of variables, constants and operations."}
-],
-"Physics":[
-{type:"mcq",ch:"Chapter 1",q:"What is the SI unit of length?",a:"Metre (m)",opts:["Kilogram","Metre","Second","Newton"],correct:1},
-{type:"short",ch:"Chapter 1",q:"Define physics.",a:"Physics is the branch of science that studies matter, energy and their interactions."},
-{type:"long",ch:"Chapter 1",q:"What is the importance of physics?",a:"Physics helps us understand natural phenomena, energy, motion, electricity and technology."}
-],
-"Chemistry":[
-{type:"mcq",ch:"Chapter 1",q:"What is the chemical symbol of oxygen?",a:"O",opts:["O","H","C","N"],correct:0},
-{type:"short",ch:"Chapter 1",q:"Define atom.",a:"An atom is the smallest unit of an element that retains its chemical properties."},
-{type:"long",ch:"Chapter 1",q:"Differentiate between an element and a compound.",a:"An element contains only one kind of atom, while a compound contains two or more elements chemically combined in a fixed ratio."}
-],
-"Computer":[
-{type:"mcq",ch:"Chapter 1",q:"What is a computer?",a:"An electronic machine that processes data.",opts:["A machine for processing data","A book","A chair","A vehicle"],correct:0},
-{type:"mcq",ch:"Chapter 1",q:"Which part is called the brain of computer?",a:"CPU",opts:["Mouse","Monitor","CPU","Keyboard"],correct:2},
-{type:"short",ch:"Chapter 1",q:"Define hardware.",a:"The physical parts of a computer that we can see and touch are called hardware."},
-{type:"short",ch:"Chapter 1",q:"What is software?",a:"A set of programs and instructions that tell a computer what to do is called software."},
-{type:"long",ch:"Chapter 1",q:"Explain the basic components of a computer.",a:"The basic components include input devices, the CPU, memory and output devices. Input devices enter data, the CPU processes it, memory stores it and output devices show the results."}
+long:[
+["Explain the parts of speech.","The main parts of speech are noun, pronoun, verb, adjective, adverb, preposition, conjunction and interjection."],
+["Explain the importance of grammar.","Grammar helps us speak and write correctly. It explains the rules of language and sentence formation."]
 ]
+},
+"اردو":{
+mcq:[
+["اسم کسے کہتے ہیں؟","کسی شخص، جگہ یا چیز کے نام کو","کام کو","صفت کو","آواز کو",0],
+["فعل کسے کہتے ہیں؟","نام کو","کام یا حالت کو","جگہ کو","رنگ کو",1],
+["واحد کی جمع کیا ہے؟","ایک سے زیادہ","صرف ایک","دو الفاظ","کوئی نہیں",1],
+["متضاد الفاظ کیا ہوتے ہیں؟","ہم معنی الفاظ","الٹ معنی والے الفاظ","ایک جیسے الفاظ","مشکل الفاظ",1],
+["مترادف کسے کہتے ہیں؟","ہم معنی الفاظ","متضاد الفاظ","جملے","حروف",0]
+],
+short:[
+["اسم کی تعریف لکھیں۔","کسی شخص، جگہ، جانور یا چیز کے نام کو اسم کہتے ہیں۔"],
+["فعل کی تعریف لکھیں۔","وہ لفظ جس سے کسی کام کا کرنا یا ہونا ظاہر ہو، فعل کہلاتا ہے۔"],
+["صفت کسے کہتے ہیں؟","وہ لفظ جو کسی اسم کی خوبی یا خامی ظاہر کرے، صفت کہلاتا ہے۔"],
+["واحد کسے کہتے ہیں؟","وہ لفظ جو ایک شخص یا چیز کے لیے استعمال ہو۔"],
+["جمع کسے کہتے ہیں؟","وہ لفظ جو ایک سے زیادہ افراد یا چیزوں کے لیے استعمال ہو۔"]
+],
+long:[
+["اسم، فعل اور صفت کی وضاحت کریں۔","اسم کسی شخص، جگہ یا چیز کا نام ہے۔ فعل کام یا حالت کو ظاہر کرتا ہے۔ صفت اسم کی خوبی یا خامی بیان کرتی ہے۔"],
+["اردو زبان کی اہمیت بیان کریں۔","اردو ہماری قومی زبان ہے۔ یہ رابطے، تعلیم، ادب اور ثقافت کا اہم ذریعہ ہے۔"]
+]
+},
+"Mathematics":{
+mcq:[
+["2 + 2 = ?","2","3","4","5",2],
+["5 × 5 = ?","10","15","20","25",3],
+["Square of 4?","8","12","16","20",2],
+["Value of 10²?","10","20","100","1000",2],
+["A triangle has how many sides?","2","3","4","5",1]
+],
+short:[
+["What is a natural number?","A counting number such as 1, 2, 3, 4, ..."],
+["Define an integer.","An integer is a positive number, negative number or zero."],
+["What is a fraction?","A fraction represents a part of a whole."],
+["Define a square.","A square is a number multiplied by itself."],
+["What is an equation?","An equation is a mathematical statement showing equality."]
+],
+long:[
+["Explain real numbers.","Real numbers include rational and irrational numbers. They can be represented on a number line."],
+["Explain the basic properties of addition.","Addition has commutative, associative and identity properties."]
+]
+},
+"Physics":{
+mcq:[
+["SI unit of length?","Kilogram","Metre","Second","Ampere",1],
+["SI unit of mass?","Metre","Second","Kilogram","Newton",2],
+["Speed = ?","Distance / Time","Time / Distance","Mass × Time","Force / Area",0],
+["SI unit of force?","Joule","Newton","Watt","Pascal",1],
+["Instrument used to measure temperature?","Balance","Thermometer","Ammeter","Ruler",1]
+],
+short:[
+["Define physics.","Physics is the branch of science that studies matter, energy and their interactions."],
+["What is distance?","Distance is the total length of the path travelled."],
+["Define speed.","Speed is distance travelled per unit time."],
+["What is force?","Force is a push or pull that can change motion."],
+["Define mass.","Mass is the quantity of matter in an object."]
+],
+long:[
+["Explain the difference between distance and displacement.","Distance is the total path travelled, while displacement is the shortest straight-line change in position with direction."],
+["Explain speed and its formula.","Speed is the distance travelled in unit time. Speed = Distance / Time."]
+]
+},
+"Chemistry":{
+mcq:[
+["Symbol of oxygen?","O","H","N","C",0],
+["Symbol of hydrogen?","O","H","He","Na",1],
+["Water formula?","CO2","H2O","O2","NaCl",1],
+["Atomic number of hydrogen?","1","2","3","4",0],
+["Which is a noble gas?","Oxygen","Nitrogen","Helium","Hydrogen",2]
+],
+short:[
+["What is chemistry?","Chemistry is the study of matter, its composition, properties and changes."],
+["Define atom.","An atom is the smallest unit of an element that retains its chemical properties."],
+["What is a molecule?","A molecule consists of two or more atoms chemically bonded together."],
+["Define element.","An element is a pure substance made of one kind of atom."],
+["What is a compound?","A compound is a substance formed by chemically combining elements."]
+],
+long:[
+["Explain the structure of an atom.","An atom consists of a nucleus containing protons and neutrons, with electrons occupying regions around the nucleus."],
+["Differentiate between elements and compounds.","An element contains one type of atom. A compound contains two or more elements chemically combined in a fixed ratio."]
+]
+},
+"Computer Science":{
+mcq:[
+["What is CPU?","Central Processing Unit","Computer Power Unit","Control Program Unit","Central Print Unit",0],
+["Which is an input device?","Monitor","Printer","Keyboard","Speaker",2],
+["Which is an output device?","Mouse","Keyboard","Scanner","Monitor",3],
+["Full form of RAM?","Random Access Memory","Read Access Memory","Run All Memory","Real Access Machine",0],
+["Which is a storage device?","Hard disk","Keyboard","Mouse","Monitor",0]
+],
+short:[
+["What is a computer?","A computer is an electronic device that processes data into information."],
+["Define hardware.","The physical parts of a computer are called hardware."],
+["Define software.","Programs and instructions that operate a computer are called software."],
+["What is RAM?","RAM is temporary memory used by a computer while programs are running."],
+["What is an operating system?","An operating system manages computer hardware and software resources."]
+],
+long:[
+["Explain the basic components of a computer.","The basic components include input devices, CPU, memory, storage devices and output devices."],
+["Explain the difference between hardware and software.","Hardware consists of physical computer components, while software consists of programs and instructions."]
+]
+}
 };
 
-let currentBook = "";
-let currentType = "all";
-let favorites = JSON.parse(localStorage.getItem("myFav") || "[]");
+let currentBook="";
+let currentType="";
 
-const subjectBox = document.getElementById("subjects");
+function createQuestions(book,type){
+let data=bank[book][type];
+let total=type==="mcq"?50:type==="short"?20:10;
+let result=[];
 
-books.forEach((book,i)=>{
- let b=document.createElement("button");
- b.className="subject";
- b.innerHTML=icons[i]+"<br>"+book;
- b.onclick=()=>openBook(book);
- subjectBox.appendChild(b);
+for(let i=0;i<total;i++){
+let q=data[i%data.length];
+result.push(q);
+}
+return result;
+}
+
+function init(){
+let html="";
+books.forEach(b=>{
+html+=`<button class="book" onclick="openBook('${b.replace(/'/g,"\\'")}')">📘 ${b} <span>➜</span></button>`;
 });
+document.getElementById("books").innerHTML=html;
+}
 
 function openBook(book){
- currentBook=book;
- currentType="all";
- document.getElementById("home").classList.add("hidden");
- document.getElementById("study").classList.remove("hidden");
- document.getElementById("bookTitle").innerText="📖 "+book;
- renderNotes();
+currentBook=book;
+document.getElementById("home").classList.add("hidden");
+document.getElementById("subjects").classList.remove("hidden");
+document.getElementById("bookTitle").innerText=book;
+showSection("mcq");
 }
 
 function goHome(){
- document.getElementById("study").classList.add("hidden");
- document.getElementById("home").classList.remove("hidden");
+document.getElementById("home").classList.remove("hidden");
+document.getElementById("subjects").classList.add("hidden");
 }
 
-function showType(type,btn){
- currentType=type;
- document.querySelectorAll(".tabs button").forEach(x=>x.classList.remove("active"));
- btn.classList.add("active");
- renderNotes();
+function showSection(type){
+currentType=type;
+let questions=createQuestions(currentBook,type);
+let html="";
+html+=`<div class="card"><h2>${type==="mcq"?"50 MCQs":type==="short"?"20 مختصر سوالات":"10 تفصیلی سوالات"}</h2>`;
+
+questions.forEach((q,i)=>{
+html+=`<div class="question"><h3>${i+1}. ${q[0]}</h3>`;
+
+if(type==="mcq"){
+for(let j=1;j<=4;j++){
+html+=`<button class="option" onclick="checkAnswer(this,${j-1},${q[5]})">${String.fromCharCode(64+j)}. ${q[j]}</button>`;
+}
+html+=`<p class="result"></p>`;
+}else{
+html+=`<button class="secondary" onclick="toggleAnswer(this)">جواب دیکھیں</button>`;
+html+=`<div class="answer hidden">${q[1]}</div>`;
+}
+html+=`</div>`;
+});
+
+html+="</div>";
+document.getElementById("content").innerHTML=html;
+window.scrollTo(0,0);
 }
 
-function renderNotes(){
- let box=document.getElementById("notes");
- box.innerHTML="";
- let items=data[currentBook] || [];
-
- items.forEach((item,i)=>{
- if(currentType!=="all" && currentType!=="fav" && item.type!==currentType)return;
- if(currentType==="fav" && !favorites.includes(currentBook+"-"+i))return;
-
- let div=document.createElement("div");
- div.className="card";
-
- let label=item.type==="mcq"?"MCQ":item.type==="short"?"مختصر سوال":"تفصیلی سوال";
-
- let options="";
- if(item.type==="mcq"){
- options="<p>";
- item.opts.forEach((o,n)=>{
- options+="<br>"+String.fromCharCode(65+n)+". "+o;
- });
- options+="</p>";
- }
-
- div.innerHTML=`
- <span class="small">${item.ch} | ${label}</span>
- <h3>سوال ${i+1}: ${item.q}</h3>
- ${options}
- <details>
- <summary>جواب دیکھیں</summary>
- <p class="answer">${item.a}</p>
- </details>
- <button class="action" onclick="toggleFav('${currentBook}-${i}')">⭐ پسندیدہ</button>
- `;
- box.appendChild(div);
- });
-
- if(box.innerHTML===""){
- box.innerHTML="<div class='card'>ابھی اس حصے میں کوئی سوال شامل نہیں ہے۔</div>";
- }
+function checkAnswer(btn,selected,correct){
+let parent=btn.parentElement;
+if(parent.dataset.done)return;
+parent.dataset.done="1";
+let options=parent.querySelectorAll(".option");
+options.forEach((b,i)=>{
+b.disabled=true;
+if(i===correct)b.classList.add("correct");
+});
+if(selected!==correct)btn.classList.add("wrong");
+parent.querySelector(".result").innerText=
+selected===correct?"✓ بالکل درست جواب!":"✗ درست جواب سبز رنگ میں دکھایا گیا ہے۔";
 }
 
-function toggleFav(id){
- if(favorites.includes(id)){
- favorites=favorites.filter(x=>x!==id);
- }else{
- favorites.push(id);
- }
- localStorage.setItem("myFav",JSON.stringify(favorites));
- renderNotes();
+function toggleAnswer(btn){
+let answer=btn.nextElementSibling;
+answer.classList.toggle("hidden");
+btn.innerText=answer.classList.contains("hidden")?"جواب دیکھیں":"جواب چھپائیں";
 }
 
-function searchNotes(){
- let term=document.getElementById("search").value.toLowerCase();
- let buttons=document.querySelectorAll(".subject");
- buttons.forEach((b,i)=>{
- b.style.display=books[i].toLowerCase().includes(term)?"block":"none";
- });
-}
-
+init();
 </script>
 </body>
 </html>
