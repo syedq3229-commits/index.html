@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>9th Class Notes</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #eef3ff;
+    color: #222;
+}
+
+header {
+    background: linear-gradient(135deg,#061a66,#1769e0);
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+header h1 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 16px;
+}
+
+nav {
+    background: #09245c;
+    padding: 14px;
+    text-align: center;
+}
+
+nav button {
+    background: white;
+    color: #09245c;
+    border: none;
+    padding: 11px 17px;
+    margin: 5px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+nav button:hover {
+    background: #ffcc00;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+.welcome {
+    background: white;
+    padding: 25px;
+    text-align: center;
+    border-radius: 15px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 12px #ccd5e8;
+}
+
+.welcome h2 {
+    color: #1255bb;
+    margin-bottom: 10px;
+}
+
+.section-title {
+    text-align: center;
+    color: #09245c;
+    margin: 25px 0;
+}
+
+.books {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 18px;
+}
+
+.book {
+    background: white;
+    padding: 22px;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px #ccd5e8;
+}
+
+.book h3 {
+    color: #1357b8;
+    margin-bottom: 12px;
+}
+
+.book button {
+    background: #145bd0;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.book button:hover {
+    background: #09245c;
+}
+
+#details {
+    display: none;
+    background: white;
+    padding: 22px;
+    margin-top: 25px;
+    border-radius: 15px;
+    box-shadow: 0 3px 12px #ccd5e8;
+}
+
+#details h2 {
+    color: #1357b8;
+    margin-bottom: 15px;
+}
+
+.chapter {
+    background: #edf3ff;
+    margin: 12px 0;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.chapter button {
+    background: #145bd0;
+    color: white;
+    border: none;
+    padding: 9px 14px;
+    border-radius: 7px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.content-box {
+    background: #f5f8ff;
+    padding: 18px;
+    margin-top: 12px;
+    border-left: 5px solid #145bd0;
+    border-radius: 8px;
+    line-height: 1.8;
+}
+
+.back {
+    background: #e53935;
+    color: white;
+    border: none;
+    padding: 11px 18px;
+    border-radius: 8px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+footer {
+    background: #09245c;
+    color: white;
+    text-align: center;
+    padding: 22px;
+    margin-top: 35px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>📚 9th Class Notes</h1>
+    <p>All Books | Notes | MCQs | Questions Answers</p>
+</header>
+
+<nav>
+    <button onclick="goHome()">Home</button>
+    <button onclick="showAllBooks()">All Books</button>
+    <button onclick="goHome()">About</button>
+</nav>
+
+<div class="container">
+
+    <div class="welcome" id="welcome">
+        <h2>Welcome to 9th Class Notes Website</h2>
+        <p>
+        خوش آمدید! یہاں آپ کو نویں جماعت کی تمام کتابوں
+        کے نوٹس، چیپٹرز، MCQs اور سوال جواب ملیں گے۔
+        </p>
+    </div>
+
+    <h2 class="section-title" id="booksTitle">
+        📖 Select Your Book
+    </h2>
+
+    <div class="books" id="books">
+
+        <div class="book">
+            <h3>📘 English</h3>
+            <p>English Notes and Chapters</p>
+            <br>
+            <button onclick="openBook('English')">Open Book</button>
+        </div>
+
+        <div class="book">
+            <h3>📗 Urdu</h3>
+            <p>Urdu Notes and Chapters</p>
+            <br>
+            <button onclick="openBook('Urdu')">Open Book</button>
+        </div>
+
+        <div class="book">
+            <h3>📕 Mathematics</h3>
+            <p>Math Formulas and Exercises</p>
+            <br>
+            <button onclick="openBook('Mathematics')">Open Book</button>
+        </div>
+
+        <div class="book">
+            <h3>💻 Computer</h3>
+            <p>Computer Science Notes</p>
+            <br>
+            <button onclick="openBook('Computer')">Open Book</button>
+        </div>
+
+        <div class="book">
+            <h3>⚛️ Physics</h3>
+            <p>Physics Notes and Numericals</p>
+            <br>
+            <button onclick="openBook('Physics')">Open Book</button>
+        </div>
+
+        <div class="book">
+            <h3>🧪 Chemistry</h3>
+            <p>Chemistry Notes and Questions</p>
+            <br>
+            <button onclick="openBook('Chemistry')">Open Book</button>
+        </div>
+
+    </div>
+
+    <div id="details">
+        <h2 id="bookName"></h2>
+        <p>Select your chapter:</p>
+        <div id="chapters"></div>
+        <button class="back" onclick="goHome()">⬅ Back to Home</button>
+    </div>
+
+</div>
+
+<footer>
+    <h3>9th Class Notes</h3>
+    <p>Made for Students ❤️</p>
+    <p>All Rights Reserved</p>
+</footer>
+
+<script>
+
+const subjects = {
+    English: [
+        "The Saviour of Mankind",
+        "Patriotism",
+        "Media and Its Impact",
+        "Hazrat Asma (RA)",
+        "Daffodils"
+    ],
+
+    Urdu: [
+        "حمد",
+        "نعت",
+        "اخلاق حسنہ",
+        "اپنی مدد آپ",
+        "کسان"
+    ],
+
+    Mathematics: [
+        "Matrices and Determinants",
+        "Real and Complex Numbers",
+        "Logarithms",
+        "Algebraic Expressions",
+        "Factorization"
+    ],
+
+    Computer: [
+        "Introduction to Systems",
+        "Binary System",
+        "Digital Systems",
+        "Applications and Uses",
+        "Computer Networks"
+    ],
+
+    Physics: [
+        "Physical Quantities",
+        "Kinematics",
+        "Dynamics",
+        "Turning Effect of Forces",
+        "Gravitation"
+    ],
+
+    Chemistry: [
+        "Fundamentals of Chemistry",
+        "Structure of Atoms",
+        "Periodic Table",
+        "Chemical Bonding",
+        "Physical States of Matter"
+    ]
+};
+
+function openBook(subject) {
+
+    document.getElementById("welcome").style.display = "none";
+    document.getElementById("books").style.display = "none";
+    document.getElementById("booksTitle").style.display = "none";
+
+    let details = document.getElementById("details");
+
+    details.style.display = "block";
+
+    document.getElementById("bookName").innerText =
+        "📚 " + subject + " Book";
+
+    let chapterBox = document.getElementById("chapters");
+
+    chapterBox.innerHTML = "";
+
+    subjects[subject].forEach((chapter,index) => {
+
+        let div = document.createElement("div");
+
+        div.className = "chapter";
+
+        div.innerHTML = `
+            <h3>Chapter ${index+1}: ${chapter}</h3>
+
+            <button onclick="showNotes('${subject}',${index})">
+                📖 Notes
+            </button>
+
+            <button onclick="showMCQs('${subject}',${index})">
+                📝 MCQs
+            </button>
+
+            <button onclick="showQuestions('${subject}',${index})">
+                ❓ Questions Answers
+            </button>
+        `;
+
+        chapterBox.appendChild(div);
+
+    });
+
+}
+
+function showNotes(subject,index) {
+
+    let chapter = subjects[subject][index];
+
+    document.getElementById("chapters").innerHTML = `
+        <div class="content-box">
+            <h2>📖 ${chapter} - Notes</h2>
+            <p>یہاں اس چیپٹر کے مکمل نوٹس شامل کیے جائیں گے۔</p>
+            <p>Important Definitions</p>
+            <p>Important Short Questions</p>
+            <p>Important Long Questions</p>
+            <p>Important Points</p>
+        </div>
+        <button class="back" onclick="openBook('${subject}')">
+        ⬅ Back to Chapters
+        </button>
+    `;
+
+}
+
+function showMCQs(subject,index) {
+
+    let chapter = subjects[subject][index];
+
+    document.getElementById("chapters").innerHTML = `
+        <div class="content-box">
+            <h2>📝 ${chapter} - MCQs</h2>
+            <p>1. Important MCQ will appear here.</p>
+            <p>2. Choose the correct answer.</p>
+            <p>3. Practice important questions.</p>
+        </div>
+        <button class="back" onclick="openBook('${subject}')">
+        ⬅ Back to Chapters
+        </button>
+    `;
+
+}
+
+function showQuestions(subject,index) {
+
+    let chapter = subjects[subject][index];
+
+    document.getElementById("chapters").innerHTML = `
+        <div class="content-box">
+            <h2>❓ ${chapter} - Questions Answers</h2>
+            <p>Short Questions:</p>
+            <p>Question 1: Important question will appear here.</p>
+            <p>Question 2: Important question will appear here.</p>
+            <br>
+            <p>Long Questions:</p>
+            <p>Long question answers will appear here.</p>
+        </div>
+        <button class="back" onclick="openBook('${subject}')">
+        ⬅ Back to Chapters
+        </button>
+    `;
+
+}
+
+function goHome() {
+
+    document.getElementById("welcome").style.display = "block";
+    document.getElementById("books").style.display = "grid";
+    document.getElementById("booksTitle").style.display = "block";
+    document.getElementById("details").style.display = "none";
+
+}
+
+function showAllBooks() {
+    goHome();
+    document.getElementById("booksTitle").scrollIntoView();
+}
+
+</script>
+
+</body>
+</html>
