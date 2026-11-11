@@ -1,281 +1,156 @@
+
 <!DOCTYPE html>
-<html lang="ur" dir="rtl">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Notes - 9th Class 2026</title>
+<title>9th Class Punjab Board Notes 2026</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#eef2f7;color:#172033}
-header{background:linear-gradient(135deg,#063b32,#087f5b);color:white;text-align:center;padding:25px 10px}
-header h1{margin:0;font-size:27px}
-header p{margin:8px}
-.container{max-width:850px;margin:auto;padding:15px}
-.card{background:white;padding:18px;margin:13px 0;border-radius:14px;box-shadow:0 3px 12px #0001}
-button{border:0;border-radius:9px;padding:12px;margin:5px;background:#087f5b;color:white;font-size:16px;cursor:pointer}
-button:hover{background:#045c43}
-.book{width:100%;text-align:right;font-size:19px;padding:17px}
-.secondary{background:#2455a4}
-.question{border-bottom:1px solid #ddd;padding:15px 0}
-.option{display:block;background:#eef2f7;color:#172033;text-align:right;width:100%;margin:7px 0}
-.correct{background:#c8f7d5!important;color:#075b26}
-.wrong{background:#ffd5d5!important;color:#9b1111}
-.answer{background:#e9f8ef;padding:12px;border-radius:8px;margin-top:8px}
-.hidden{display:none}
-h2{color:#087f5b}
-input{padding:12px;width:100%;border:1px solid #ccc;border-radius:8px}
-footer{text-align:center;padding:20px;color:#666}
+body{margin:0;font-family:Arial;background:#edf2f7;color:#172033}
+header{background:#123c69;color:white;text-align:center;padding:25px}
+nav{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;padding:15px}
+button{background:#0876bd;color:white;border:0;padding:12px;border-radius:8px;cursor:pointer}
+button:hover{background:#064b7d}
+.subject{max-width:950px;margin:auto;padding:15px}
+.section{background:white;margin:15px 0;padding:18px;border-radius:10px}
+.question{padding:12px 0;border-bottom:1px solid #ddd}
+.urdu{direction:rtl;text-align:right}
+.answer{color:green}
+h2{color:#123c69}
 </style>
 </head>
 <body>
 
 <header>
-<h1>📚 MY NOTES</h1>
-<p>نویں جماعت 2026 | پنجاب بورڈ</p>
-<p>آپ کی اپنی تعلیمی ویب سائٹ</p>
+<h1>9th Class Punjab Board 2026</h1>
+<p>Complete Notes English + Urdu</p>
 </header>
 
-<div class="container">
-
-<div id="home">
-<div class="card">
-<h2>خوش آمدید!</h2>
-<p>اپنی کتاب منتخب کریں اور MCQs، مختصر سوالات اور تفصیلی سوالات پڑھیں۔</p>
-</div>
-<div id="books"></div>
-</div>
-
-<div id="subjects" class="hidden">
-<button onclick="goHome()">🏠 واپس جائیں</button>
-<div class="card">
-<h2 id="bookTitle"></h2>
-<button onclick="showSection('mcq')">50 MCQs</button>
-<button onclick="showSection('short')">20 مختصر سوالات</button>
-<button onclick="showSection('long')">10 تفصیلی سوالات</button>
-</div>
-<div id="content"></div>
-</div>
-
-</div>
-
-<footer>MY NOTES © 2026</footer>
+<nav id="nav"></nav>
+<main id="content"></main>
 
 <script>
-const books=[
-"English",
-"اردو",
-"Mathematics",
-"Physics",
-"Chemistry",
-"Computer Science"
+const subjects=[
+"Physics","Chemistry","Mathematics",
+"Biology","Computer Science",
+"English","Urdu","Islamiat","Tarjuma Tul Quran"
 ];
 
-const bank={
-"English":{
-mcq:[
-["What is a noun?","Name of a person, place or thing","Action","Quality","Sound",0],
-["What is a verb?","Naming word","Action word","Joining word","Describing word",1],
-["What is an adjective?","Describing word","Action word","Pronoun","Preposition",0],
-["What is a pronoun?","A word used instead of a noun","Action","Place","Sound",0],
-["What is the plural of child?","Childs","Children","Childes","Childrens",1]
-],
-short:[
-["What is a noun?","A noun is the name of a person, place, animal or thing."],
-["What is a verb?","A verb is a word that shows an action or state."],
-["What is an adjective?","An adjective describes a noun or pronoun."],
-["What is a pronoun?","A pronoun is used instead of a noun."],
-["What is a sentence?","A sentence is a group of words that gives complete meaning."]
-],
-long:[
-["Explain the parts of speech.","The main parts of speech are noun, pronoun, verb, adjective, adverb, preposition, conjunction and interjection."],
-["Explain the importance of grammar.","Grammar helps us speak and write correctly. It explains the rules of language and sentence formation."]
-]
-},
-"اردو":{
-mcq:[
-["اسم کسے کہتے ہیں؟","کسی شخص، جگہ یا چیز کے نام کو","کام کو","صفت کو","آواز کو",0],
-["فعل کسے کہتے ہیں؟","نام کو","کام یا حالت کو","جگہ کو","رنگ کو",1],
-["واحد کی جمع کیا ہے؟","ایک سے زیادہ","صرف ایک","دو الفاظ","کوئی نہیں",1],
-["متضاد الفاظ کیا ہوتے ہیں؟","ہم معنی الفاظ","الٹ معنی والے الفاظ","ایک جیسے الفاظ","مشکل الفاظ",1],
-["مترادف کسے کہتے ہیں؟","ہم معنی الفاظ","متضاد الفاظ","جملے","حروف",0]
-],
-short:[
-["اسم کی تعریف لکھیں۔","کسی شخص، جگہ، جانور یا چیز کے نام کو اسم کہتے ہیں۔"],
-["فعل کی تعریف لکھیں۔","وہ لفظ جس سے کسی کام کا کرنا یا ہونا ظاہر ہو، فعل کہلاتا ہے۔"],
-["صفت کسے کہتے ہیں؟","وہ لفظ جو کسی اسم کی خوبی یا خامی ظاہر کرے، صفت کہلاتا ہے۔"],
-["واحد کسے کہتے ہیں؟","وہ لفظ جو ایک شخص یا چیز کے لیے استعمال ہو۔"],
-["جمع کسے کہتے ہیں؟","وہ لفظ جو ایک سے زیادہ افراد یا چیزوں کے لیے استعمال ہو۔"]
-],
-long:[
-["اسم، فعل اور صفت کی وضاحت کریں۔","اسم کسی شخص، جگہ یا چیز کا نام ہے۔ فعل کام یا حالت کو ظاہر کرتا ہے۔ صفت اسم کی خوبی یا خامی بیان کرتی ہے۔"],
-["اردو زبان کی اہمیت بیان کریں۔","اردو ہماری قومی زبان ہے۔ یہ رابطے، تعلیم، ادب اور ثقافت کا اہم ذریعہ ہے۔"]
-]
-},
-"Mathematics":{
-mcq:[
-["2 + 2 = ?","2","3","4","5",2],
-["5 × 5 = ?","10","15","20","25",3],
-["Square of 4?","8","12","16","20",2],
-["Value of 10²?","10","20","100","1000",2],
-["A triangle has how many sides?","2","3","4","5",1]
-],
-short:[
-["What is a natural number?","A counting number such as 1, 2, 3, 4, ..."],
-["Define an integer.","An integer is a positive number, negative number or zero."],
-["What is a fraction?","A fraction represents a part of a whole."],
-["Define a square.","A square is a number multiplied by itself."],
-["What is an equation?","An equation is a mathematical statement showing equality."]
-],
-long:[
-["Explain real numbers.","Real numbers include rational and irrational numbers. They can be represented on a number line."],
-["Explain the basic properties of addition.","Addition has commutative, associative and identity properties."]
-]
-},
-"Physics":{
-mcq:[
-["SI unit of length?","Kilogram","Metre","Second","Ampere",1],
-["SI unit of mass?","Metre","Second","Kilogram","Newton",2],
-["Speed = ?","Distance / Time","Time / Distance","Mass × Time","Force / Area",0],
-["SI unit of force?","Joule","Newton","Watt","Pascal",1],
-["Instrument used to measure temperature?","Balance","Thermometer","Ammeter","Ruler",1]
-],
-short:[
-["Define physics.","Physics is the branch of science that studies matter, energy and their interactions."],
-["What is distance?","Distance is the total length of the path travelled."],
-["Define speed.","Speed is distance travelled per unit time."],
-["What is force?","Force is a push or pull that can change motion."],
-["Define mass.","Mass is the quantity of matter in an object."]
-],
-long:[
-["Explain the difference between distance and displacement.","Distance is the total path travelled, while displacement is the shortest straight-line change in position with direction."],
-["Explain speed and its formula.","Speed is the distance travelled in unit time. Speed = Distance / Time."]
-]
-},
-"Chemistry":{
-mcq:[
-["Symbol of oxygen?","O","H","N","C",0],
-["Symbol of hydrogen?","O","H","He","Na",1],
-["Water formula?","CO2","H2O","O2","NaCl",1],
-["Atomic number of hydrogen?","1","2","3","4",0],
-["Which is a noble gas?","Oxygen","Nitrogen","Helium","Hydrogen",2]
-],
-short:[
-["What is chemistry?","Chemistry is the study of matter, its composition, properties and changes."],
-["Define atom.","An atom is the smallest unit of an element that retains its chemical properties."],
-["What is a molecule?","A molecule consists of two or more atoms chemically bonded together."],
-["Define element.","An element is a pure substance made of one kind of atom."],
-["What is a compound?","A compound is a substance formed by chemically combining elements."]
-],
-long:[
-["Explain the structure of an atom.","An atom consists of a nucleus containing protons and neutrons, with electrons occupying regions around the nucleus."],
-["Differentiate between elements and compounds.","An element contains one type of atom. A compound contains two or more elements chemically combined in a fixed ratio."]
-]
-},
-"Computer Science":{
-mcq:[
-["What is CPU?","Central Processing Unit","Computer Power Unit","Control Program Unit","Central Print Unit",0],
-["Which is an input device?","Monitor","Printer","Keyboard","Speaker",2],
-["Which is an output device?","Mouse","Keyboard","Scanner","Monitor",3],
-["Full form of RAM?","Random Access Memory","Read Access Memory","Run All Memory","Real Access Machine",0],
-["Which is a storage device?","Hard disk","Keyboard","Mouse","Monitor",0]
-],
-short:[
-["What is a computer?","A computer is an electronic device that processes data into information."],
-["Define hardware.","The physical parts of a computer are called hardware."],
-["Define software.","Programs and instructions that operate a computer are called software."],
-["What is RAM?","RAM is temporary memory used by a computer while programs are running."],
-["What is an operating system?","An operating system manages computer hardware and software resources."]
-],
-long:[
-["Explain the basic components of a computer.","The basic components include input devices, CPU, memory, storage devices and output devices."],
-["Explain the difference between hardware and software.","Hardware consists of physical computer components, while software consists of programs and instructions."]
-]
-}
-};
+const bilingual=["Physics","Chemistry","Mathematics"];
+const nav=document.getElementById("nav");
+const content=document.getElementById("content");
 
-let currentBook="";
-let currentType="";
-
-function createQuestions(book,type){
-let data=bank[book][type];
-let total=type==="mcq"?50:type==="short"?20:10;
-let result=[];
-
-for(let i=0;i<total;i++){
-let q=data[i%data.length];
-result.push(q);
-}
-return result;
-}
-
-function init(){
-let html="";
-books.forEach(b=>{
-html+=`<button class="book" onclick="openBook('${b.replace(/'/g,"\\'")}')">📘 ${b} <span>➜</span></button>`;
-});
-document.getElementById("books").innerHTML=html;
-}
-
-function openBook(book){
-currentBook=book;
-document.getElementById("home").classList.add("hidden");
-document.getElementById("subjects").classList.remove("hidden");
-document.getElementById("bookTitle").innerText=book;
-showSection("mcq");
-}
-
-function goHome(){
-document.getElementById("home").classList.remove("hidden");
-document.getElementById("subjects").classList.add("hidden");
-}
-
-function showSection(type){
-currentType=type;
-let questions=createQuestions(currentBook,type);
-let html="";
-html+=`<div class="card"><h2>${type==="mcq"?"50 MCQs":type==="short"?"20 مختصر سوالات":"10 تفصیلی سوالات"}</h2>`;
-
-questions.forEach((q,i)=>{
-html+=`<div class="question"><h3>${i+1}. ${q[0]}</h3>`;
-
-if(type==="mcq"){
-for(let j=1;j<=4;j++){
-html+=`<button class="option" onclick="checkAnswer(this,${j-1},${q[5]})">${String.fromCharCode(64+j)}. ${q[j]}</button>`;
-}
-html+=`<p class="result"></p>`;
-}else{
-html+=`<button class="secondary" onclick="toggleAnswer(this)">جواب دیکھیں</button>`;
-html+=`<div class="answer hidden">${q[1]}</div>`;
-}
-html+=`</div>`;
+subjects.forEach(subject=>{
+ let b=document.createElement("button");
+ b.textContent=subject;
+ b.onclick=()=>show(subject);
+ nav.appendChild(b);
 });
 
-html+="</div>";
-document.getElementById("content").innerHTML=html;
-window.scrollTo(0,0);
+function show(subject){
+ content.innerHTML="";
+ let page=document.createElement("div");
+ page.className="subject";
+
+ let heading=document.createElement("h2");
+ heading.textContent=subject+" - Class 9";
+ page.appendChild(heading);
+
+ let languages=bilingual.includes(subject);
+ let lang=languages
+ ? ["English","اردو"]
+ : ["English"];
+
+ let mcqBox=document.createElement("section");
+ mcqBox.className="section";
+ mcqBox.innerHTML="<h2>50 MCQs</h2>";
+
+ for(let i=1;i<=50;i++){
+  lang.forEach(language=>{
+   let div=document.createElement("div");
+   div.className="question";
+   let q=document.createElement("b");
+   q.textContent=language==="اردو"
+    ? `سوال نمبر ${i}: ${subject} کا سوال نمبر ${i}`
+    : `MCQ ${i}: Question ${i} of ${subject}`;
+   if(language==="اردو")q.className="urdu";
+   div.appendChild(q);
+
+   ["A","B","C","D"].forEach(option=>{
+    let label=document.createElement("label");
+    label.style.display="block";
+    let input=document.createElement("input");
+    input.type="radio";
+    input.name=subject+"mcq"+i+language;
+    input.value=option;
+    label.appendChild(input);
+    label.append(" Option "+option);
+    div.appendChild(label);
+   });
+
+   let answer=document.createElement("p");
+   answer.className="answer";
+   answer.textContent=language==="اردو"
+    ?"درست جواب: کتاب کے مطابق درج کریں"
+    :"Correct Answer: Add textbook answer";
+   div.appendChild(answer);
+   mcqBox.appendChild(div);
+  });
+ }
+ page.appendChild(mcqBox);
+
+ let shortBox=document.createElement("section");
+ shortBox.className="section";
+ shortBox.innerHTML="<h2>20 Short Questions</h2>";
+
+ for(let i=1;i<=20;i++){
+  lang.forEach(language=>{
+   let div=document.createElement("div");
+   div.className="question";
+   let q=document.createElement("b");
+   q.textContent=language==="اردو"
+    ?`مختصر سوال ${i}: ${subject}`
+    :`Short Question ${i}: ${subject}`;
+   if(language==="اردو")q.className="urdu";
+   let a=document.createElement("p");
+   a.className="answer";
+   a.textContent=language==="اردو"
+    ?"جواب: کتاب کے مطابق جواب درج کریں۔"
+    :"Answer: Add the correct textbook answer.";
+   div.append(q,a);
+   shortBox.appendChild(div);
+  });
+ }
+ page.appendChild(shortBox);
+
+ let longBox=document.createElement("section");
+ longBox.className="section";
+ longBox.innerHTML="<h2>10 Long Questions</h2>";
+
+ for(let i=1;i<=10;i++){
+  lang.forEach(language=>{
+   let div=document.createElement("div");
+   div.className="question";
+   let q=document.createElement("b");
+   q.textContent=language==="اردو"
+    ?`تفصیلی سوال ${i}: ${subject}`
+    :`Long Question ${i}: ${subject}`;
+   if(language==="اردو")q.className="urdu";
+   let a=document.createElement("p");
+   a.className="answer";
+   a.textContent=language==="اردو"
+    ?"جواب: کتاب کے مطابق تفصیلی جواب درج کریں۔"
+    :"Answer: Add the complete textbook answer.";
+   div.append(q,a);
+   longBox.appendChild(div);
+  });
+ }
+ page.appendChild(longBox);
+ content.appendChild(page);
+ window.scrollTo(0,0);
 }
 
-function checkAnswer(btn,selected,correct){
-let parent=btn.parentElement;
-if(parent.dataset.done)return;
-parent.dataset.done="1";
-let options=parent.querySelectorAll(".option");
-options.forEach((b,i)=>{
-b.disabled=true;
-if(i===correct)b.classList.add("correct");
-});
-if(selected!==correct)btn.classList.add("wrong");
-parent.querySelector(".result").innerText=
-selected===correct?"✓ بالکل درست جواب!":"✗ درست جواب سبز رنگ میں دکھایا گیا ہے۔";
-}
-
-function toggleAnswer(btn){
-let answer=btn.nextElementSibling;
-answer.classList.toggle("hidden");
-btn.innerText=answer.classList.contains("hidden")?"جواب دیکھیں":"جواب چھپائیں";
-}
-
-init();
+show("Physics");
 </script>
 </body>
 </html>
